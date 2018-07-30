@@ -20,14 +20,14 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   handleClick = () => {
-    alert("Good job!!!");
+    // alert("Good job!!!");
     HoverMenuModule.show();
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <Button title='Click here, bitch' onPress={this.handleClick}/>
+        <Button title='Touch here' onPress={this.handleClick}/>
       </View>
     );
   }

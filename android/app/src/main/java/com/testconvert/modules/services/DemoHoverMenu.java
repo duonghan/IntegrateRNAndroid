@@ -41,7 +41,8 @@ import io.mattcarroll.hover.HoverMenu;
 public class DemoHoverMenu extends HoverMenu {
 
     public static final String INTRO_ID = "intro";
-    public static final String INTRO_ID_CLONE = "intro clone";
+    public static final String HELLO_ID = "hello screen";
+    public static final String ANIMATION_ID = "animation screen";
 
     private final Context mContext;
     private final String mMenuId;

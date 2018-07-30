@@ -1,34 +1,23 @@
 import React, {Component} from 'react';
-import {Button, Platform, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
+import { ReactMotion } from './ReactMotionDemo';
 
 class HelloScreen extends Component{
+    handleClick = () => {
+        alert("Good job!!!");
+    };
 
     render(){
         return(
-            <View style={styles.container}>
-                <Text> Hello World</Text>
+            // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF'}}>
+            //     <Text style={{color: '#f74c59', textAlign: 'center', fontSize: 30 }}> Hello World</Text>
+            //     <Button title='Click Here' onPress={this.handleClick}/>
+            // </View>
+            <View>
+                <ReactMotion />
             </View>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
 
 export default HelloScreen;

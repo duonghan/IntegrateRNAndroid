@@ -86,7 +86,7 @@ public class DemoHoverMenuService extends HoverMenuService {
 
     private HoverMenu createHoverMenu() {
         try {
-            mDemoHoverMenu = new DemoHoverMenuFactory().createDemoMenuFromCode(getContextForHoverMenu(), Bus.getInstance(), getApplication());
+            mDemoHoverMenu = new DemoHoverMenuFactory().createDemoMenuFromCode(getContextForHoverMenu(), getApplication());
 //            mDemoHoverMenuAdapter = new DemoHoverMenuFactory().createDemoMenuFromFile(getContextForHoverMenu());
             return mDemoHoverMenu;
         } catch (IOException e) {

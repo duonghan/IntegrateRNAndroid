@@ -21,16 +21,22 @@ public class HoverMenuActivity extends Activity implements DefaultHardwareBackBt
 
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
-            .setApplication(getApplication())
-            .setBundleAssetName("index.android.bundle")
-            .setJSMainModulePath("index")
-            .addPackage(new MainReactPackage())
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
-            .setInitialLifecycleState(LifecycleState.RESUMED)
-            .build();
+           .setApplication(getApplication())
+           .setBundleAssetName("index.android.bundle")
+           .setJSMainModulePath("index")
+           .addPackage(new MainReactPackage())
+           .setUseDeveloperSupport(BuildConfig.DEBUG)
+           .setInitialLifecycleState(LifecycleState.RESUMED)
+           .build();
+
+        if(ValaReactInstanceManager.getInstance() == null){
+            ValaReactInstanceManager.setInstance(getApplication());
+        }
+
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        mReactRootView.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null);
+//        mReactRootView.startReactApplication(mReactInstanceManager, "HelloScreen", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "HelloScreen", null);
 
         setContentView(mReactRootView);
     }
@@ -40,42 +46,42 @@ public class HoverMenuActivity extends Activity implements DefaultHardwareBackBt
         super.onBackPressed();
     }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//
-//        if (mReactInstanceManager != null) {
-//            mReactInstanceManager.onHostPause(this);
-//        }
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        if (mReactInstanceManager != null) {
-//            mReactInstanceManager.onHostResume(this, this);
-//        }
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//
-//        if (mReactInstanceManager != null) {
-//            mReactInstanceManager.onHostDestroy(this);
-//        }
-//        if (mReactRootView != null) {
-//            mReactRootView.unmountReactApplication();
-//        }
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        if (mReactInstanceManager != null) {
-//            mReactInstanceManager.onBackPressed();
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostPause(this);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostResume(this, this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onHostDestroy(this);
+        }
+        if (mReactRootView != null) {
+            mReactRootView.unmountReactApplication();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager.onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

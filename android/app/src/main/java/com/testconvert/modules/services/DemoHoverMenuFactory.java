@@ -19,14 +19,14 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.testconvert.modules.placeholder.PlaceholderCloneContent;
-import com.testconvert.modules.placeholder.PlaceholderContent;
+import com.testconvert.modules.placeholder.ButtonTemplateScreenContent;
+import com.testconvert.modules.placeholder.DefaultPlaceholderContent;
+import com.testconvert.modules.placeholder.AnimationScreenContent;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import de.greenrobot.event.EventBus;
 import io.mattcarroll.hover.Content;
 
 /**
@@ -38,11 +38,12 @@ public class DemoHoverMenuFactory {
      * Example of how to create a menu in code.
      * @return HoverMenu
      */
-    public DemoHoverMenu createDemoMenuFromCode(@NonNull Context context, @NonNull EventBus bus, Application application) throws IOException {
+    public DemoHoverMenu createDemoMenuFromCode(@NonNull Context context, Application application) throws IOException {
 
         Map<String, Content> demoMenu = new LinkedHashMap<>();
-        demoMenu.put(DemoHoverMenu.INTRO_ID, new PlaceholderContent(context, application, Bus.getInstance()));
-        demoMenu.put(DemoHoverMenu.INTRO_ID_CLONE, new PlaceholderCloneContent(context, application, Bus.getInstance()));
+        demoMenu.put(DemoHoverMenu.INTRO_ID, new AnimationScreenContent(context, application));
+        demoMenu.put(DemoHoverMenu.HELLO_ID, new DefaultPlaceholderContent(context, application));
+        demoMenu.put(DemoHoverMenu.ANIMATION_ID, new ButtonTemplateScreenContent(context, application));
 
         return new DemoHoverMenu(context, "demo_vala", demoMenu);
     }

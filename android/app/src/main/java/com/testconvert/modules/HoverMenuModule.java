@@ -68,8 +68,8 @@ public class HoverMenuModule extends ReactContextBaseJavaModule {
     public void show(){
         Toast.makeText(getReactApplicationContext(), "Start Hover Intent", Toast.LENGTH_SHORT).show();
         Intent startHoverIntent = new Intent(getReactApplicationContext(), DemoHoverMenuService.class);
-        getReactApplicationContext().startService(startHoverIntent);
-//        getReactApplicationContext().startActivity(startHoverIntent);
+       getReactApplicationContext().startService(startHoverIntent);
+//         getReactApplicationContext().startActivity(startHoverIntent);
         getCurrentActivity().finish();
     }
 }

@@ -18,38 +18,29 @@ package com.testconvert.modules.placeholder;
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
+import com.facebook.react.shell.MainReactPackage;
 import com.testconvert.BuildConfig;
-import com.testconvert.R;
-import com.testconvert.modules.HoverMenuPackage;
 
-import de.greenrobot.event.EventBus;
 import io.mattcarroll.hover.Content;
 
 /**
  * Use this class to try adding your own content to the Hover menu.
  */
-public class PlaceholderCloneContent extends FrameLayout implements Content {
-
-    private final EventBus mBus;
+public class ButtonTemplateScreenContent extends FrameLayout implements Content {
     private TextView mTitleTextView;
     private Context mContext;
     private Application mApplication;
 
-    private Button btnToast;
 
-
-    public PlaceholderCloneContent(@NonNull Context context, @NonNull Application application, @NonNull EventBus bus) {
+    public ButtonTemplateScreenContent(@NonNull Context context, @NonNull Application application) {
         super(context);
-        mBus = bus;
         mContext = context;
         mApplication = application;
         init();
@@ -60,25 +51,16 @@ public class PlaceholderCloneContent extends FrameLayout implements Content {
         ReactInstanceManager mReactInstanceManager;
 
         mReactInstanceManager = ReactInstanceManager.builder()
-                .setApplication(mApplication)
+                .setApplication((Application) this.getContext().getApplicationContext())
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(new HoverMenuPackage())
+                .addPackage(new MainReactPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
 
-        // The string here (e.g
-        LayoutInflater.from(getContext()).inflate(R.layout.view_placeholder_content, this, true);
-        btnToast = (Button) findViewById(R.id.btn_toast);
-
-        //        mTitleTextView = (TextView) findViewById(R.id.textview_title);
-//        contentView.startReactApplication(mReactInstanceManager, "ValaMobileApp", null);
-//        RelativeLayout container = (RelativeLayout) findViewById(R.id.view_container);
-//        container.addView(contentView, -1, new RelativeLayout.LayoutParams(5000, 5000));
-//        LayoutInflater.from(getContext()).cloneInContext(contentView.getContext());
-
-//        this.addView(contentView);
+        contentView.startReactApplication(mReactInstanceManager, "ButtonScreen", null);
+        this.addView(contentView);
     }
 
     @Override
@@ -114,7 +96,4 @@ public class PlaceholderCloneContent extends FrameLayout implements Content {
 
     }
 
-    public void onEventMainThread() {
-
-    }
 }
