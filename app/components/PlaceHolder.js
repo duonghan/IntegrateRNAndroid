@@ -2,30 +2,19 @@ import React, {Component} from 'react';
 import {Button, Text, View} from 'react-native';
 
 class PlaceHolder extends Component {
-    onChangeColor = () => {
-        // this.setState((prevState) => {
-        //     return {
-        //         color: !prevState.color,
-        //         text: `You've already clicked this button`
-        //     }
-        // })
-        this.prop.OnToggleColor();
-    };
 
     constructor(props) {
         super(props);
-        this.state = {
-            color: true,
-            text: 'Hi!! buddy'
-        }
     }
 
     render() {
+        const {btnColor, onChangeColor} = this.props;
+
         return (
-            <View>
-                <Text style={{color: 'red'}}>{this.state.text}{'\n\n'}</Text>
-                <Button title='Change button bg color' onPress={this.onChangeColor}
-                        color={this.state.color ? 'red' : 'green'}/>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                <Text style={{color: btnColor}}>{btnColor}</Text>
+                <Button title='Change button bg color' onPress={onChangeColor}
+                        color={btnColor}/>
             </View>
         )
     }

@@ -8,8 +8,10 @@ let store = createStore(allReducers);
 
 export default class ButtonTemplate extends React.Component {
     render() {
-        <Provider store={store}>
-            <PlaceHolderContainer/>
-        </Provider>
+        return (
+            <Provider store={store}>
+                <PlaceHolderContainer/>
+            </Provider>
+        );
     }
 }

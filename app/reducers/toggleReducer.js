@@ -1,13 +1,17 @@
 import {TOGGLE_BUTTON_COLOR} from "../actions/actionTypes";
 
-const toggleReducer = (initalState = {isToggle: true}, action) => {
+const initialState = {btnColor: 'red'};
+
+const toggleReducer = (state = initialState, action) => {
+
     if (action.type === TOGGLE_BUTTON_COLOR) {
         return {
-            isToggle: !isToggle
+            ...state,
+            btnColor: state.btnColor === 'red' ? 'green' : 'red'
         }
-    } else {
-        return initalState;
     }
+
+    return state;
 };
 
 export default toggleReducer;
