@@ -33,13 +33,13 @@ import io.mattcarroll.hover.Content;
 /**
  * Use this class to try adding your own content to the Hover menu.
  */
-public class ButtonTemplateScreenContent extends FrameLayout implements Content {
+public class CounterScreenContent extends FrameLayout implements Content {
     private TextView mTitleTextView;
     private Context mContext;
     private Application mApplication;
 
 
-    public ButtonTemplateScreenContent(@NonNull Context context, @NonNull Application application) {
+    public CounterScreenContent(@NonNull Context context, @NonNull Application application) {
         super(context);
         mContext = context;
         mApplication = application;
@@ -59,7 +59,7 @@ public class ButtonTemplateScreenContent extends FrameLayout implements Content 
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
 
-        contentView.startReactApplication(mReactInstanceManager, "ButtonScreen", null);
+        contentView.startReactApplication(mReactInstanceManager, "CounterScreen", null);
         this.addView(contentView);
     }
 
