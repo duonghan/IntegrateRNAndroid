@@ -1,4 +1,4 @@
-const urlGetMovies = 'http://localhost:3000/movies';
+const urlGetMovies = 'http://5b616f9e07412d00142acdf9.mockapi.io/movies';
 const urlPostMovies = 'http://localhost:3000/movies';
 
 function* getMoviesFromApi() {
@@ -13,6 +13,7 @@ function* getMoviesFromApi() {
     });
 
     const movies = yield response.status === 200 ? JSON.parse(response._bodyInit) : [];
+
     return movies;
 }
 

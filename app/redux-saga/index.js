@@ -1,5 +1,4 @@
 import React from 'react';
-import {AppRegistry} from 'react-native';
 //Redux
 import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -13,10 +12,16 @@ import rootSaga from './sagas/rootSaga';
 const sagaMiddleware = createSagaMiddleware();
 
 let store = createStore(allReducers, applyMiddleware(sagaMiddleware));
-const App = () => (
-    <Provider store={store}>
-        <MovieContainer/>
-    </Provider>
-);
+
+
+export default class ReduxSagaScreen extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <MovieContainer/>
+            </Provider>
+        );
+    };
+};
+
 sagaMiddleware.run(rootSaga);
-AppRegistry.registerComponent('HienBVScreen', () => App);

@@ -10,7 +10,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+    debugger;
     return {
+
         onFetchMovies: () => {
             dispatch(fetchMoviesAction());
         },

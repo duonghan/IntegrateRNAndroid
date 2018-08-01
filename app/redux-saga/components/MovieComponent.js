@@ -47,7 +47,7 @@ export default class MovieComponent extends Component {
                         }}
                         style={{fontSize: 18, color: 'white'}}
                         onPress={() => {
-                            this.props.onFetchMovies('asc');
+                            this.props.onFetchMovies();
                         }}>
                         Fetch movies
                     </Button>

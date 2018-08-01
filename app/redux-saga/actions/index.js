@@ -1,9 +1,9 @@
 import {ADD_MOVIE, FETCH_FAILED, FETCH_MOVIES, FETCH_SUCCEEDED} from './actionTypes';
 
-export const fetchMoviesAction = (sort) => {
+export const fetchMoviesAction = () => {
+    debugger;
     return {
         type: FETCH_MOVIES,
-        sort
     }
 };
 

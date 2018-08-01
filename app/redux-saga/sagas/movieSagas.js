@@ -1,12 +1,15 @@
-import {FETCH_FAILED, FETCH_MOVIES, FETCH_SUCCEEDED} from '../actions/actionTypes';
+import {ADD_MOVIE, FETCH_FAILED, FETCH_MOVIES, FETCH_SUCCEEDED} from '../actions/actionTypes';
 //Saga effects
 import {put, takeLatest} from 'redux-saga/effects';
 import {Api} from './Api';
 
 function* fetchMovies() {
     try {
+        debugger;
         const receivedMovies = yield Api.getMoviesFromApi();
+
         yield put({type: FETCH_SUCCEEDED, receivedMovies: receivedMovies});
+        debugger;
     } catch (error) {
         yield put({type: FETCH_FAILED, error});
     }

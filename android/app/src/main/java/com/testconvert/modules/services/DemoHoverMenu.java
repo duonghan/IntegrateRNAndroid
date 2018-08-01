@@ -45,6 +45,7 @@ public class DemoHoverMenu extends HoverMenu {
     public static final String ANIMATION_ID = "animation screen";
     public static final String BUTTON_ID = "button screen";
     public static final String ASYNC_ID = "async screen";
+    public static final String SAGA_ID = "saga screen";
 
     private final Context mContext;
     private final String mMenuId;
