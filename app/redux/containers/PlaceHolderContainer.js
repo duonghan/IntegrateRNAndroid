@@ -1,10 +1,12 @@
 import PlaceHolder from '../components/PlaceHolder';
 
-import {toggleButtonColor} from "../actions";
+import {toggleButtonColor} from "../actions/index";
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
-    btnColor: state.btnColor
+    return {
+        btnColor: state.toggleReducer.btnColor
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {

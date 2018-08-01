@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import allReducers from './reducers';
+import allReducers from './reducers/index';
 import PlaceHolderContainer from "./containers/PlaceHolderContainer";
 
 let store = createStore(allReducers);

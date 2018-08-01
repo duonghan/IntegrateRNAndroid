@@ -12,8 +12,8 @@ class PlaceHolder extends Component {
 
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: btnColor}}>{btnColor}</Text>
-                <Button title='Change button bg color' onPress={onChangeColor}
+                <Text style={{color: btnColor, fontSize: 30}}>{btnColor}</Text>
+                <Button title='Change' onPress={onChangeColor}
                         color={btnColor}/>
             </View>
         )

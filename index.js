@@ -3,10 +3,12 @@
 import {AppRegistry} from 'react-native';
 import App from './App';
 import HelloScreen from './HelloWorld';
-import ButtonTemplate from "./app";
-import Counter from "./appNew/containers/app";
+import ButtonTemplate from "./app/redux/index";
+import Counter from "./app/redux-rethunk/containers/app";
+import AsyncStorageExample from "./app/async/AsyncStorageExample";
 
 AppRegistry.registerComponent('TestConvert', () => App);
 AppRegistry.registerComponent('HelloScreen', () => HelloScreen);
 AppRegistry.registerComponent('ButtonScreen', () => ButtonTemplate);
 AppRegistry.registerComponent('CounterScreen', () => Counter);
+AppRegistry.registerComponent('AsyncStorageScreen', () => AsyncStorageExample);

@@ -19,6 +19,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.testconvert.modules.placeholder.AsyncStorageScreenContent;
 import com.testconvert.modules.placeholder.ButtonScreenContent;
 import com.testconvert.modules.placeholder.CounterScreenContent;
 import com.testconvert.modules.placeholder.DefaultPlaceholderContent;
@@ -46,6 +47,7 @@ public class DemoHoverMenuFactory {
         demoMenu.put(DemoHoverMenu.HELLO_ID, new DefaultPlaceholderContent(context, application));
         demoMenu.put(DemoHoverMenu.ANIMATION_ID, new CounterScreenContent(context, application));
         demoMenu.put(DemoHoverMenu.BUTTON_ID, new ButtonScreenContent(context, application));
+        demoMenu.put(DemoHoverMenu.ASYNC_ID, new AsyncStorageScreenContent(context, application));
 
         return new DemoHoverMenu(context, "demo_vala", demoMenu);
     }
